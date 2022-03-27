@@ -80,6 +80,7 @@
 		5E11658026BC0F8B0088DF78 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E11658426BC11BF0088DF78 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		5EF56E3A27F0939D002A6C2E /* SLideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLideVC.swift; sourceTree = "<group>"; };
+		5EF56E3C27F09F47002A6C2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +131,7 @@
 				5E11656026BC0B8A0088DF78 /* EnableVC.swift */,
 				5E11656126BC0B8A0088DF78 /* SetupVC.swift */,
 				5E11656426BC0BA00088DF78 /* UseVC.swift */,
+				5EF56E3C27F09F47002A6C2E /* README.md */,
 				5E11656626BC0D490088DF78 /* demo.mp4 */,
 				5E11655426BC0B050088DF78 /* Assets.xcassets */,
 				5E11655626BC0B050088DF78 /* Main.storyboard */,
