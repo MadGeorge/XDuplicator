@@ -3,7 +3,7 @@ import XcodeKit
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
-        let bundle = Bundle.main.bundleIdentifier ?? ""
+        let bundle = Bundle.main.bundleIdentifier ?? .empty
         
         switch invocation.commandIdentifier {
         case "\(bundle).Duplicate":
@@ -25,7 +25,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         let start = selection.start
         let end = selection.end
 
-        let maxLines = invocation.buffer.lines.count - 1
+        let maxLines = invocation.buffer.lines.count.minusOne
         let startIndex = min(start.line, maxLines)
         let endIndex = max(.zero, min(end.line, maxLines)).clampInclusive(min: startIndex)
 
@@ -51,7 +51,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         // no selection, just cursore on the line
         if start.line == end.line && start.column == end.column {
             if let line = invocation.buffer.lines.object(at: start.line) as? String {
-                let nextLine = start.line + 1
+                let nextLine = start.line.plusOne
                 invocation.buffer.lines.insert(line, at: nextLine)
                 
                 // move selection
@@ -101,15 +101,15 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
                 let lastLinePrefix = lastLine[lastLine.startIndex..<lastLine.index(lastLine.startIndex, offsetBy: end.column)]
                 let lastLineSuffix = lastLine[lastLine.index(lastLine.startIndex, offsetBy: end.column)...]
 
-                let linesBetween = invocation.buffer.lines.objects(at: IndexSet(integersIn: (start.line + 1)..<end.line))
+                let linesBetween = invocation.buffer.lines.objects(at: IndexSet(integersIn: (start.line.plusOne)..<end.line))
                 
                 let appending = String(lastLinePrefix) + String(firstLineSuffix) + String(lastLineSuffix)
                 invocation.buffer.lines.replaceObject(at: end.line, with: appending.trimmingCharacters(in: .newlines))
                 
-                var index = start.line + 1
+                var index = start.line.plusOne
                 for line in linesBetween {
                     invocation.buffer.lines.insert(line, at: index)
-                    index += 1
+                    index = index.plusOne
                 }
                 
                 invocation.buffer.lines.insert(lastLinePrefix.trimmingCharacters(in: .newlines), at: index)
@@ -130,4 +130,12 @@ extension Int {
     func clampInclusive(min: Int) -> Self {
         self < min ? min : self
     }
+
+    var plusOne: Self { self + 1 }
+
+    var minusOne: Self { self - 1 }
+}
+
+extension String {
+    static var empty: String { "" }
 }
