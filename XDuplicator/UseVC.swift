@@ -7,24 +7,16 @@ class UseVC: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let url = Bundle.main.url(forResource: "demo", withExtension: "mp4") {
-            let item = AVPlayerItem(url: url)
-            let player = AVPlayer(playerItem: item)
-            playerView?.player = player
-            
-            NotificationCenter.default.addObserver(
-                self, selector: #selector(didEndVideo),
-                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                object: nil
-            )
-        }
-        
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        
-        playerView?.player?.play()
+        let player = AVPlayer(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/videosplitterhosting.appspot.com/o/video%2Fxduplicator-screencast.mp4?alt=media")!)
+        playerView?.player = player
+        playerView?.controlsStyle = .default
+        playerView?.showsFullScreenToggleButton = true
+
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(didEndVideo),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+            object: nil
+        )
     }
     
     override func viewDidDisappear() {

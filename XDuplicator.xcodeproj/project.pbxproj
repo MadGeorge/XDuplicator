@@ -13,14 +13,14 @@
 		5E11656226BC0B8A0088DF78 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11656126BC0B8A0088DF78 /* SetupVC.swift */; };
 		5E11656326BC0B8A0088DF78 /* EnableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11656026BC0B8A0088DF78 /* EnableVC.swift */; };
 		5E11656526BC0BA00088DF78 /* UseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11656426BC0BA00088DF78 /* UseVC.swift */; };
-		5E11656726BC0E0C0088DF78 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5E11656626BC0D490088DF78 /* demo.mp4 */; };
 		5E11656F26BC0F270088DF78 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E11656E26BC0F270088DF78 /* Cocoa.framework */; };
 		5E11657426BC0F270088DF78 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11657326BC0F270088DF78 /* SourceEditorExtension.swift */; };
 		5E11657626BC0F270088DF78 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11657526BC0F270088DF78 /* SourceEditorCommand.swift */; };
 		5E11657B26BC0F270088DF78 /* XXDuplicator.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E11656C26BC0F270088DF78 /* XXDuplicator.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5E11658126BC0F8B0088DF78 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E11658026BC0F8B0088DF78 /* XcodeKit.framework */; };
-		5E11658226BC0F8B0088DF78 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E11658026BC0F8B0088DF78 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5E11658926BC11FC0088DF78 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E11658426BC11BF0088DF78 /* AVKit.framework */; };
+		5E1B921F2879570000EEA7FD /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E11658026BC0F8B0088DF78 /* XcodeKit.framework */; };
+		5E1B92202879570000EEA7FD /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E11658026BC0F8B0088DF78 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5E1B92232879995400EEA7FD /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1B92222879995400EEA7FD /* Library.swift */; };
 		5EF56E3B27F0939D002A6C2E /* SLideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF56E3A27F0939D002A6C2E /* SLideVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,13 +46,13 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5E11658326BC0F8B0088DF78 /* Embed Frameworks */ = {
+		5E1B92212879570000EEA7FD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5E11658226BC0F8B0088DF78 /* XcodeKit.framework in Embed Frameworks */,
+				5E1B92202879570000EEA7FD /* XcodeKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,7 +69,6 @@
 		5E11656026BC0B8A0088DF78 /* EnableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableVC.swift; sourceTree = "<group>"; };
 		5E11656126BC0B8A0088DF78 /* SetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
 		5E11656426BC0BA00088DF78 /* UseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseVC.swift; sourceTree = "<group>"; };
-		5E11656626BC0D490088DF78 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
 		5E11656C26BC0F270088DF78 /* XXDuplicator.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XXDuplicator.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E11656E26BC0F270088DF78 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5E11657026BC0F270088DF78 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -79,6 +78,7 @@
 		5E11657826BC0F270088DF78 /* XXDuplicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XXDuplicator.entitlements; sourceTree = "<group>"; };
 		5E11658026BC0F8B0088DF78 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E11658426BC11BF0088DF78 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		5E1B92222879995400EEA7FD /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		5EF56E3A27F0939D002A6C2E /* SLideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLideVC.swift; sourceTree = "<group>"; };
 		5EF56E3C27F09F47002A6C2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E11656F26BC0F270088DF78 /* Cocoa.framework in Frameworks */,
-				5E11658126BC0F8B0088DF78 /* XcodeKit.framework in Frameworks */,
+				5E1B921F2879570000EEA7FD /* XcodeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,6 @@
 				5E11656126BC0B8A0088DF78 /* SetupVC.swift */,
 				5E11656426BC0BA00088DF78 /* UseVC.swift */,
 				5EF56E3C27F09F47002A6C2E /* README.md */,
-				5E11656626BC0D490088DF78 /* demo.mp4 */,
 				5E11655426BC0B050088DF78 /* Assets.xcassets */,
 				5E11655626BC0B050088DF78 /* Main.storyboard */,
 				5E11655926BC0B050088DF78 /* Info.plist */,
@@ -157,6 +156,7 @@
 			children = (
 				5E11657326BC0F270088DF78 /* SourceEditorExtension.swift */,
 				5E11657526BC0F270088DF78 /* SourceEditorCommand.swift */,
+				5E1B92222879995400EEA7FD /* Library.swift */,
 				5E11657726BC0F270088DF78 /* Info.plist */,
 				5E11657826BC0F270088DF78 /* XXDuplicator.entitlements */,
 			);
@@ -192,7 +192,7 @@
 				5E11656826BC0F270088DF78 /* Sources */,
 				5E11656926BC0F270088DF78 /* Frameworks */,
 				5E11656A26BC0F270088DF78 /* Resources */,
-				5E11658326BC0F8B0088DF78 /* Embed Frameworks */,
+				5E1B92212879570000EEA7FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,7 +245,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E11655526BC0B050088DF78 /* Assets.xcassets in Resources */,
-				5E11656726BC0E0C0088DF78 /* demo.mp4 in Resources */,
 				5E11655826BC0B050088DF78 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +277,7 @@
 			files = (
 				5E11657426BC0F270088DF78 /* SourceEditorExtension.swift in Sources */,
 				5E11657626BC0F270088DF78 /* SourceEditorCommand.swift in Sources */,
+				5E1B92232879995400EEA7FD /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,18 +425,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = XDuplicator/XDuplicator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = N455BJCT3S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XDuplicator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XDuplicator;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XXDuplicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -448,18 +452,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = XDuplicator/XDuplicator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = N455BJCT3S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XDuplicator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XDuplicator;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XXDuplicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -469,9 +477,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XXDuplicator/XXDuplicator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = N455BJCT3S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XXDuplicator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,9 +490,10 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XDuplicator.XXDuplicator;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XXDuplicator.XXDuplicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -493,9 +504,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = XXDuplicator/XXDuplicator.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = N455BJCT3S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = XXDuplicator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -504,9 +517,10 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XDuplicator.XXDuplicator;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.madgeorge.XXDuplicator.XXDuplicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};

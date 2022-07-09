@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="EYI-3C-jAs">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="EYI-3C-jAs">
     <dependencies>
-        <plugIn identifier="com.apple.AVKitIBPlugin" version="18122"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -182,7 +183,7 @@
                                 <textFieldCell key="cell" selectable="YES" alignment="center" id="ufJ-FD-Z9J">
                                     <font key="font" metaFont="system"/>
                                     <string key="title">Open Xcode settings [⌘+,] and assign keys.
-Recomended: [⌘+D] for Duplicate. [⌘⇧+D] for Delete line</string>
+Recomended: [⌘D] for Duplicate. [⌘⇧D] for Delete line. [^⌘B] for Break parameters </string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

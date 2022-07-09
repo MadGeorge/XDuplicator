@@ -8,15 +8,20 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         switch invocation.commandIdentifier {
         case "\(bundle).Duplicate":
             performDuplicate(on: invocation)
+
         case "\(bundle).Delete":
             performDelete(on: invocation)
+
+        case "\(bundle).Break":
+            performBreak(on: invocation)
+
         default:
             break
         }
         
         completionHandler(nil)
     }
-    
+
     func performDelete(on invocation: XCSourceEditorCommandInvocation) {
         guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
             return
@@ -39,7 +44,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             )
         )
     }
-    
+
     func performDuplicate(on invocation: XCSourceEditorCommandInvocation) {
         guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
             return
@@ -48,7 +53,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         let start = selection.start
         let end = selection.end
         
-        // no selection, just cursore on the line
+        // no selection, just cursor on the line
         if start.line == end.line && start.column == end.column {
             if let line = invocation.buffer.lines.object(at: start.line) as? String {
                 let nextLine = start.line.plusOne
@@ -124,18 +129,87 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             }
         }
     }
-}
 
-extension Int {
-    func clampInclusive(min: Int) -> Self {
-        self < min ? min : self
+    func performBreak(on invocation: XCSourceEditorCommandInvocation) {
+        guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
+            return
+        }
+
+        let start = selection.start
+
+        guard let line = invocation.buffer.lines.object(at: start.line) as? String else { return }
+
+        let indent = Array(
+            repeating: (invocation.buffer.usesTabsForIndentation ? .tab : .space),
+            count: invocation.buffer.indentationWidth
+        ).joined(separator: .empty)
+
+        guard let openBracketIndex = line.firstIndex(of: .openBracket) else { return }
+        guard let closeBracketIndex = line.lastIndex(of: .closeBracket) else { return }
+
+        let funcBody = String(line[line.index(after: openBracketIndex)..<closeBracketIndex])
+
+        let baseIndent = lineIndent(line)
+
+        var output = String(line[...openBracketIndex])
+        output += .newLine
+        output += extractParameters(funcBody, indent: baseIndent + indent).joined(separator: .newLine)
+        output += .newLine
+        output += baseIndent + String(line[closeBracketIndex...])
+
+        invocation.buffer.lines.removeObject(at: start.line)
+        invocation.buffer.lines.insert(output, at: start.line)
     }
 
-    var plusOne: Self { self + 1 }
+    private func lineIndent(_ input: String) -> String {
+        var indent = String.empty
 
-    var minusOne: Self { self - 1 }
-}
+        for element in input {
+            if (element == .tab || element == .space) {
+                indent.append(element)
+                continue
+            }
 
-extension String {
-    static var empty: String { "" }
+            break
+        }
+
+        return indent
+    }
+
+    private func extractParameters(_ input: String, indent: String) -> [String] {
+        var numOfBrackets = Int.zero
+        var numOfCurlBrackets = Int.zero
+        var numOfSquareBrackets = Int.zero
+
+        let inputIndices = input.indices
+
+        var params = [String]()
+        var currentParam = String.empty
+
+        for index in inputIndices {
+            let char = input[index]
+
+            if char == "(" { numOfBrackets += .one }
+            if char == ")" { numOfBrackets -= .one }
+
+            if char == "{" { numOfCurlBrackets += .one }
+            if char == "}" { numOfCurlBrackets -= .one }
+
+            if char == "[" { numOfSquareBrackets += .one }
+            if char == "]" { numOfSquareBrackets -= .one }
+
+            let numOfAllBrackets = numOfBrackets + numOfBrackets + numOfSquareBrackets
+
+            currentParam.append(char)
+
+            if numOfAllBrackets == .zero && (char == .comma || index == inputIndices.last) {
+                params.append(
+                    indent + currentParam.trimmingCharacters(in: .whitespaces)
+                )
+                currentParam = .empty
+            }
+        }
+
+        return params
+    }
 }
